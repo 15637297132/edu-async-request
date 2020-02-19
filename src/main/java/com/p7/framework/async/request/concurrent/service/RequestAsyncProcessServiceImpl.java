@@ -24,9 +24,9 @@ public class RequestAsyncProcessServiceImpl extends RequestAsyncProcessService {
     public void process(Request request) {
 
         try {
-        	RequestData queue = doRoutingQueue(request.getRouteId());
-        	queue.getQueues().put(request);
-        	queue.getThreadPool().submit(new RequestProcessorConcurrentTask(queue.getQueues()));
+            RequestData queue = doRoutingQueue(request.getRouteId());
+            queue.getQueues().put(request);
+            queue.getThreadPool().submit(new RequestProcessorConcurrentTask(queue.getQueues()));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -47,7 +47,7 @@ public class RequestAsyncProcessServiceImpl extends RequestAsyncProcessService {
 
         int index = RouteUtil.doRoute(key, instance.queueSize() - 1);
         RequestData queue = instance.getQueue(index);
-        LOGGER.info("key : {} ,  queueId : {} , queueSize : {}", key , index, queue.getQueues().size());
+        LOGGER.info("key : {} ,  queueId : {} , queueSize : {}", key, index, queue.getQueues().size());
         return queue;
     }
 

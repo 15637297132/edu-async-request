@@ -1,5 +1,6 @@
 package com.p7.framework.async.request.base;
 
+import com.p7.framework.async.request.base.impl.DistinctRequestAsyncProcessServiceImpl;
 import com.p7.framework.async.request.tools.RouteUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,8 +8,9 @@ import org.slf4j.LoggerFactory;
 import java.util.concurrent.ArrayBlockingQueue;
 
 /**
- * 请求异步处理，RequestAsyncProcessServiceImpl为默认实现
+ * 请求异步处理，默认实现
  * @see com.p7.framework.async.request.base.impl.RequestAsyncProcessServiceImpl
+ * @see com.p7.framework.async.request.base.impl.DistinctRequestAsyncProcessServiceImpl
  * @author yz
  * @ClassName: RequestAsyncProcessService
  * @date 2018年11月9日 下午3:13:50
