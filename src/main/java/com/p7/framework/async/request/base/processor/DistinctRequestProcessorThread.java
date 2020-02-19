@@ -1,26 +1,25 @@
-package com.p7.framework.async.request.distinct.thread;
+package com.p7.framework.async.request.base.processor;
 
-import java.util.concurrent.ArrayBlockingQueue;
-
+import com.p7.framework.async.request.distinct.DistinctRequest;
 import com.p7.framework.async.request.distinct.cache.DistinctCache;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.p7.framework.async.request.distinct.DistinctRequest;
+import java.util.concurrent.ArrayBlockingQueue;
 
 /** 
  * 处理请求线程
- * @ClassName: RequestProcessorThread 
+ * @ClassName: DistinctRequestProcessorThread
  * @author yz
  * @date 2018年11月8日 下午6:38:47 
  */
-public class RequestProcessorThread implements Runnable {
+public class DistinctRequestProcessorThread implements Runnable {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(RequestProcessorThread.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(DistinctRequestProcessorThread.class);
 
 	private ArrayBlockingQueue<String> queue = null;
 
-	public RequestProcessorThread(ArrayBlockingQueue<String> queue) {
+	public DistinctRequestProcessorThread(ArrayBlockingQueue<String> queue) {
 		this.queue = queue;
 	}
 
@@ -40,7 +39,7 @@ public class RequestProcessorThread implements Runnable {
 					LOGGER.info("key:{} 请求已处理或请求已失效...", key);
 				}
 			} catch (Exception e) {
-				LOGGER.error("RequestProcessorThread：{}", e.toString());
+				LOGGER.error("DistinctRequestProcessorThread：{}", e.toString());
 			}
 		}
 	}

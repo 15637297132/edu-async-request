@@ -5,7 +5,7 @@
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd ">
 
 	<context:annotation-config/>
-	<context:component-scan base-package="com.p7.framework.async.request.common.service"/>
+	<context:component-scan base-package="com.p7.framework.async.request.base"/>
 
 	<bean id="asyncRequestExecutor"
 		class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
@@ -26,7 +26,7 @@
 	</bean>
 
 	<bean id="requestProcessorThreadPool"
-		class="com.p7.framework.async.request.common.thread.RequestProcessorThreadPool"
+		class="com.p7.framework.async.request.base.thread.RequestProcessorThreadPool"
 		init-method="init" scope="singleton"  lazy-init="false">
 		<property name="threadPool" ref="asyncRequestExecutor" />
 		<property name="queueNum" value="2" />

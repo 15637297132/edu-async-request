@@ -1,6 +1,6 @@
 package com.p7.framework.async.request.common.service;
 
-import com.p7.framework.async.request.common.interfaces.RequestAsyncService;
+import com.p7.framework.async.request.common.RequestAsyncService;
 import com.p7.framework.async.request.common.model.Data;
 
 /**

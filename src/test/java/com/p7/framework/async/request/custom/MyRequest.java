@@ -1,7 +1,7 @@
 package com.p7.framework.async.request.custom;
 
+import com.p7.framework.async.request.base.Request;
 import com.p7.framework.async.request.common.model.Data;
-import com.p7.framework.async.request.custom.interfaces.Request;
 
 /**
  * @author Yangzhen

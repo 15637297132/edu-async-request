@@ -1,4 +1,4 @@
-package com.p7.framework.async.request.common.interfaces;
+package com.p7.framework.async.request.base;
 
 /**
  * 请求接口，玩家可以直接使用CommonRequest

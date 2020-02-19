@@ -1,4 +1,4 @@
-package com.p7.framework.async.request.common.interfaces;
+package com.p7.framework.async.request.common;
 
 /**
  * @author Yangzhen

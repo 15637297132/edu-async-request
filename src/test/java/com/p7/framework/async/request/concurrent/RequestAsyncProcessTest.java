@@ -1,7 +1,7 @@
 package com.p7.framework.async.request.concurrent;
 
+import com.p7.framework.async.request.base.RequestAsyncProcessService;
 import com.p7.framework.async.request.common.CommonRequest;
-import com.p7.framework.async.request.common.interfaces.RequestAsyncProcessService;
 import com.p7.framework.async.request.concurrent.thread.RequestQueue;
 import com.p7.framework.async.request.tools.AbstractConcurrentControl;
 import org.junit.Test;

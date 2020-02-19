@@ -1,7 +1,7 @@
 package com.p7.framework.async.request.concurrent;
 
 
-import com.p7.framework.async.request.common.interfaces.RequestAsyncService;
+import com.p7.framework.async.request.common.RequestAsyncService;
 
 /**
  * @author Yangzhen

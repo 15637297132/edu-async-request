@@ -1,6 +1,6 @@
 package com.p7.framework.async.request.concurrent.thread;
 
-import com.p7.framework.async.request.common.interfaces.Request;
+import com.p7.framework.async.request.base.Request;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -8,7 +8,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 /** 
  * 处理请求线程
- * @ClassName: RequestProcessorThread 
+ * @ClassName: DistinctRequestProcessorThread
  * @author yz
  * @date 2018年11月8日 下午6:38:47 
  */
@@ -29,7 +29,7 @@ public class RequestProcessorConcurrentTask implements Runnable {
 			LOGGER.info("处理请求：{} , queue size : {}", request.getRouteId(), queue.size());
 			request.process();
 		} catch (Exception e) {
-			LOGGER.error("RequestProcessorThread：{}", e.toString());
+			LOGGER.error("DistinctRequestProcessorThread：{}", e.toString());
 		}
 	}
 

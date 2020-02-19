@@ -4,12 +4,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.p7.framework.async.request.common.CommonRequest;
-import com.p7.framework.async.request.common.interfaces.RequestAsyncService;
+import com.p7.framework.async.request.common.RequestAsyncService;
 
 /**
  * @author Yangzhen
  * @Description 通用request，玩家的service实现需要实现RequestAsyncService
- * @see com.p7.framework.async.request.common.interfaces.RequestAsyncService#asyncProcess(D data)
+ * @see RequestAsyncService#asyncProcess(D data)
  * @date 2018-12-24 19:39
  **/
 public class DistinctRequest<D> extends CommonRequest<D> {

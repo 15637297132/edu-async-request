@@ -1,17 +1,15 @@
 package com.p7.framework.async.request.common;
 
+import com.p7.framework.async.request.base.Request;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.p7.framework.async.request.common.interfaces.Request;
-import com.p7.framework.async.request.common.interfaces.RequestAsyncService;
 
 import java.io.Serializable;
 
 /**
  * @author Yangzhen
  * @Description 通用request，玩家的service实现需要实现RequestAsyncService
- * @see com.p7.framework.async.request.common.interfaces.RequestAsyncService#asyncProcess(D data)
+ * @see RequestAsyncService#asyncProcess(D data)
  * @date 2018-12-24 19:39
  **/
 public class CommonRequest<D> implements Request<D>, Serializable {

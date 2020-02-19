@@ -4,14 +4,14 @@ import java.util.concurrent.TimeUnit;
 
 import javax.annotation.Resource;
 
+import com.p7.framework.async.request.base.Request;
+import com.p7.framework.async.request.base.RequestAsyncProcessService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.p7.framework.async.request.common.model.Data;
-import com.p7.framework.async.request.custom.interfaces.Request;
-import com.p7.framework.async.request.custom.interfaces.RequestAsyncProcessService;
 import com.p7.framework.async.request.tools.AbstractConcurrentControl;
 
 /**
@@ -20,7 +20,7 @@ import com.p7.framework.async.request.tools.AbstractConcurrentControl;
  * @date 2018-12-24 10:01
  **/
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring/spring-async-request-custom.xml" })
+@ContextConfiguration(locations = { "classpath:spring/spring-async-request-base.xml" })
 public class RequestTest extends AbstractConcurrentControl{
 
 	@Resource

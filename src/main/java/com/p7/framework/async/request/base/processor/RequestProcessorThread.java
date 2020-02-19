@@ -1,15 +1,14 @@
-package com.p7.framework.async.request.custom.thread;
+package com.p7.framework.async.request.base.processor;
 
-import java.util.concurrent.ArrayBlockingQueue;
-
+import com.p7.framework.async.request.base.Request;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.p7.framework.async.request.custom.interfaces.Request;
+import java.util.concurrent.ArrayBlockingQueue;
 
 /** 
  * 处理请求线程
- * @ClassName: RequestProcessorThread 
+ * @ClassName: DistinctRequestProcessorThread
  * @author yz
  * @date 2018年11月8日 下午6:38:47 
  */
@@ -32,10 +31,9 @@ public class RequestProcessorThread implements Runnable {
 				LOGGER.info("处理请求：{}", request.getRouteId());
 				request.process();
 			} catch (Exception e) {
-				LOGGER.error("RequestProcessorThread：{}", e.toString());
+				LOGGER.error("DistinctRequestProcessorThread：{}", e.toString());
 			}
 		}
-
 	}
 
 }

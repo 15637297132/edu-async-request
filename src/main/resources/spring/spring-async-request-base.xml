@@ -7,12 +7,12 @@
 
 	<context:annotation-config />
 	<context:component-scan
-		base-package="com.p7.framework.async.request.common.service" />
+		base-package="com.p7.framework.async.request.base" />
 
 	<import resource="classpath:spring/spring-async-thread-pool.xml" />
 
 	<bean id="requestProcessorThreadPool"
-		class="com.p7.framework.async.request.common.thread.RequestProcessorThreadPool"
+		class="com.p7.framework.async.request.base.thread.RequestProcessorThreadPool"
 		init-method="init" scope="singleton" lazy-init="false">
 		<property name="threadPool" ref="asyncRequestExecutor" />
 		<!-- 与线程池的核心线程数量相同 -->

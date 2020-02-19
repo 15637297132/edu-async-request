@@ -1,6 +1,6 @@
 package com.p7.framework.async.request.concurrent.thread;
 
-import com.p7.framework.async.request.common.interfaces.Request;
+import com.p7.framework.async.request.base.Request;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.concurrent.ArrayBlockingQueue;

@@ -1,10 +1,8 @@
-package com.p7.framework.async.request.custom.thread;
+package com.p7.framework.async.request.base;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
-
-import com.p7.framework.async.request.custom.interfaces.Request;
 
 /** 
  * 请求队列
@@ -14,7 +12,7 @@ import com.p7.framework.async.request.custom.interfaces.Request;
  */
 public class RequestQueue {
 
-	private List<ArrayBlockingQueue<Request>> queues = new ArrayList<ArrayBlockingQueue<Request>>();
+	private List<ArrayBlockingQueue> queues = new ArrayList<>();
 
 	private RequestQueue() {
 
@@ -44,7 +42,7 @@ public class RequestQueue {
 	 * @date 2018年11月12日 上午10:10:42
 	 * @author yz
 	 */
-	public void addQueue(ArrayBlockingQueue<Request> queue) {
+	public void addQueue(ArrayBlockingQueue queue) {
 		queues.add(queue);
 	}
 
@@ -67,7 +65,7 @@ public class RequestQueue {
 	 * @date 2018年11月12日 上午10:10:35
 	 * @author yz
 	 */
-	public ArrayBlockingQueue<Request> getQueue(int index) {
+	public ArrayBlockingQueue getQueue(int index) {
 		return queues.get(index);
 	}
 
