@@ -9,142 +9,145 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.RejectedExecutionHandler;
 
-/** 
+/**
  * 请求处理线程池
- * @ClassName: RequestProcessorThreadPool 
+ *
  * @author yz
- * @date 2018年11月8日 下午6:38:59 
+ * @ClassName: RequestProcessorThreadPool
+ * @date 2018年11月8日 下午6:38:59
  */
 public class RequestProcessorThreadPool {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(RequestProcessorThreadPool.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RequestProcessorThreadPool.class);
 
-	
-	/**
-	 * 内存队列的数量，必须为2的次幂
-	 */
-	private int queueNum;
 
-	/**
-	 * 每个内存队列的大小
-	 */
-	private int perQueueSize;
+    /**
+     * 内存队列的数量，必须为2的次幂
+     */
+    private int queueNum;
 
-	private String threadNamePrefix="Demo";
-	
-	private int corePoolSize = 1;
+    /**
+     * 每个内存队列的大小
+     */
+    private int perQueueSize;
 
-	private int maxPoolSize = Integer.MAX_VALUE;
+    private String threadNamePrefix = "concurrentConsume";
 
-	private int keepAliveSeconds = 60;
+    private int corePoolSize = 1;
 
-	private boolean allowCoreThreadTimeOut = false;
+    private int maxPoolSize = Integer.MAX_VALUE;
 
-	private int queueCapacity = Integer.MAX_VALUE;
-	
-	private RejectedExecutionHandler rejectedExecutionHandler=new java.util.concurrent.ThreadPoolExecutor.DiscardOldestPolicy();
-	/**
-	 * 初始化内存队列，spring加载此bean后立即执行的方法
-	 * @Title: init   
-	 * @date 2018年12月25日 上午9:29:11
-	 * @author yz
-	 */
-	public void init() {
-		CheckParams.checkParams(queueNum,perQueueSize);
-		RequestQueue requestQueue = RequestQueue.getInstance();
-		for (int i = 0; i < queueNum; i++) {
-			ArrayBlockingQueue<Request<?>> queue = new ArrayBlockingQueue<Request<?>>(perQueueSize);
-			ThreadPoolTaskExecutor threadPool = threadPoolTaskExecutor(i);
-			RequestData requestData = new RequestData();
-			requestData.setQueues(queue);
-			requestData.setThreadPool(threadPool);
-			requestQueue.addQueue(requestData);
-		}
-		LOGGER.info("内存队列初始化完成...");
-	}	
+    private int keepAliveSeconds = 60;
 
-	public Integer getQueueNum() {
-		return queueNum;
-	}
+    private boolean allowCoreThreadTimeOut = false;
 
-	public void setQueueNum(Integer queueNum) {
-		this.queueNum = queueNum;
-	}
+    private int queueCapacity = Integer.MAX_VALUE;
 
-	public Integer getPerQueueSize() {
-		return perQueueSize;
-	}
+    private RejectedExecutionHandler rejectedExecutionHandler = new java.util.concurrent.ThreadPoolExecutor.DiscardOldestPolicy();
 
-	public void setPerQueueSize(Integer perQueueSize) {
-		this.perQueueSize = perQueueSize;
-	}
+    /**
+     * 初始化内存队列，spring加载此bean后立即执行的方法
+     *
+     * @Title: init
+     * @date 2018年12月25日 上午9:29:11
+     * @author yz
+     */
+    public void init() {
+        CheckParams.checkParams(queueNum, perQueueSize);
+        RequestQueue requestQueue = RequestQueue.getInstance();
+        for (int i = 0; i < queueNum; i++) {
+            ArrayBlockingQueue<Request<?>> queue = new ArrayBlockingQueue<Request<?>>(perQueueSize);
+            ThreadPoolTaskExecutor threadPool = threadPoolTaskExecutor(i);
+            RequestData requestData = new RequestData();
+            requestData.setQueues(queue);
+            requestData.setThreadPool(threadPool);
+            requestQueue.addQueue(requestData);
+        }
+        LOGGER.info("内存队列初始化完成...");
+    }
 
-	public String getThreadNamePrefix() {
-		return threadNamePrefix;
-	}
+    public Integer getQueueNum() {
+        return queueNum;
+    }
 
-	public void setThreadNamePrefix(String threadNamePrefix) {
-		this.threadNamePrefix = threadNamePrefix;
-	}
+    public void setQueueNum(Integer queueNum) {
+        this.queueNum = queueNum;
+    }
 
-	public int getCorePoolSize() {
-		return corePoolSize;
-	}
+    public Integer getPerQueueSize() {
+        return perQueueSize;
+    }
 
-	public void setCorePoolSize(int corePoolSize) {
-		this.corePoolSize = corePoolSize;
-	}
+    public void setPerQueueSize(Integer perQueueSize) {
+        this.perQueueSize = perQueueSize;
+    }
 
-	public int getMaxPoolSize() {
-		return maxPoolSize;
-	}
+    public String getThreadNamePrefix() {
+        return threadNamePrefix;
+    }
 
-	public void setMaxPoolSize(int maxPoolSize) {
-		this.maxPoolSize = maxPoolSize;
-	}
+    public void setThreadNamePrefix(String threadNamePrefix) {
+        this.threadNamePrefix = threadNamePrefix;
+    }
 
-	public int getKeepAliveSeconds() {
-		return keepAliveSeconds;
-	}
+    public int getCorePoolSize() {
+        return corePoolSize;
+    }
 
-	public void setKeepAliveSeconds(int keepAliveSeconds) {
-		this.keepAliveSeconds = keepAliveSeconds;
-	}
+    public void setCorePoolSize(int corePoolSize) {
+        this.corePoolSize = corePoolSize;
+    }
 
-	public boolean isAllowCoreThreadTimeOut() {
-		return allowCoreThreadTimeOut;
-	}
+    public int getMaxPoolSize() {
+        return maxPoolSize;
+    }
 
-	public void setAllowCoreThreadTimeOut(boolean allowCoreThreadTimeOut) {
-		this.allowCoreThreadTimeOut = allowCoreThreadTimeOut;
-	}
+    public void setMaxPoolSize(int maxPoolSize) {
+        this.maxPoolSize = maxPoolSize;
+    }
 
-	public int getQueueCapacity() {
-		return queueCapacity;
-	}
+    public int getKeepAliveSeconds() {
+        return keepAliveSeconds;
+    }
 
-	public void setQueueCapacity(int queueCapacity) {
-		this.queueCapacity = queueCapacity;
-	}
+    public void setKeepAliveSeconds(int keepAliveSeconds) {
+        this.keepAliveSeconds = keepAliveSeconds;
+    }
 
-	public RejectedExecutionHandler getRejectedExecutionHandler() {
-		return rejectedExecutionHandler;
-	}
+    public boolean isAllowCoreThreadTimeOut() {
+        return allowCoreThreadTimeOut;
+    }
 
-	public void setRejectedExecutionHandler(
-			RejectedExecutionHandler rejectedExecutionHandler) {
-		this.rejectedExecutionHandler = rejectedExecutionHandler;
-	}
+    public void setAllowCoreThreadTimeOut(boolean allowCoreThreadTimeOut) {
+        this.allowCoreThreadTimeOut = allowCoreThreadTimeOut;
+    }
 
-	public void setQueueNum(int queueNum) {
-		this.queueNum = queueNum;
-	}
+    public int getQueueCapacity() {
+        return queueCapacity;
+    }
 
-	public void setPerQueueSize(int perQueueSize) {
-		this.perQueueSize = perQueueSize;
-	}
+    public void setQueueCapacity(int queueCapacity) {
+        this.queueCapacity = queueCapacity;
+    }
 
-	private ThreadPoolTaskExecutor threadPoolTaskExecutor(int i) {
+    public RejectedExecutionHandler getRejectedExecutionHandler() {
+        return rejectedExecutionHandler;
+    }
+
+    public void setRejectedExecutionHandler(
+            RejectedExecutionHandler rejectedExecutionHandler) {
+        this.rejectedExecutionHandler = rejectedExecutionHandler;
+    }
+
+    public void setQueueNum(int queueNum) {
+        this.queueNum = queueNum;
+    }
+
+    public void setPerQueueSize(int perQueueSize) {
+        this.perQueueSize = perQueueSize;
+    }
+
+    private ThreadPoolTaskExecutor threadPoolTaskExecutor(int i) {
         ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
         //如果池中的实际线程数小于corePoolSize,无论是否其中有空闲的线程，都会给新的任务产生新的线程
         taskExecutor.setCorePoolSize(corePoolSize);
@@ -156,7 +159,7 @@ public class RequestProcessorThreadPool {
         taskExecutor.setAllowCoreThreadTimeOut(allowCoreThreadTimeOut);
         taskExecutor.setRejectedExecutionHandler(rejectedExecutionHandler);
         //强烈建议一定要给线程起一个有意义的名称前缀，便于分析日志
-        taskExecutor.setThreadNamePrefix(threadNamePrefix+" Thread-"+i);
+        taskExecutor.setThreadNamePrefix(threadNamePrefix + " Thread-" + i);
         taskExecutor.initialize();
 
         return taskExecutor;

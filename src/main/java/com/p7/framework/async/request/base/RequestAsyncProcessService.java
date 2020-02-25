@@ -1,6 +1,5 @@
 package com.p7.framework.async.request.base;
 
-import com.p7.framework.async.request.base.impl.DistinctRequestAsyncProcessServiceImpl;
 import com.p7.framework.async.request.tools.RouteUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

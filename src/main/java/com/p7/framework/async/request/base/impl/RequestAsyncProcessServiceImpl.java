@@ -2,7 +2,6 @@ package com.p7.framework.async.request.base.impl;
 
 import com.p7.framework.async.request.base.Request;
 import com.p7.framework.async.request.base.RequestAsyncProcessService;
-import com.p7.framework.async.request.base.RequestQueue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
