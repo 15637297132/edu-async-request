@@ -65,8 +65,6 @@
                 <configuration>
                     <!-- 跳过失败的单元测试 -->
                     <testFailureIgnore>true</testFailureIgnore>
-                    <!-- 编译但不执行测试用例 -->
-                    <skipTests>true</skipTests>
                     <!-- 不编译不执行测试用例 -->
                     <skip>true</skip>
                 </configuration>
