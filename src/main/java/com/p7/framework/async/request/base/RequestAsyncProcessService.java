@@ -37,7 +37,7 @@ public abstract class RequestAsyncProcessService {
      * @author yz
      */
     protected <T> T doRoutingQueue(String key) {
-        RequestQueue instance = RequestQueue.getInstance();
+        RequestQueue<ArrayBlockingQueue<String>> instance = RequestQueue.getInstance();
         int index = RouteUtil.doRoute(key, instance.queueSize() - 1);
         ArrayBlockingQueue<String> queue = instance.getQueue(index);
         LOGGER.info("key : {} ,  queueId : {} , queueSize : {}", key , index, queue.size());

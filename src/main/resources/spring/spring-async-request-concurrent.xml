@@ -7,7 +7,7 @@
 	<context:annotation-config/>
 	<context:component-scan base-package="com.p7.framework.async.request.concurrent.service"/>
 
-	<bean id="requestAsyncProcessService" class="com.p7.framework.async.request.concurrent.service.RequestAsyncProcessServiceImpl"></bean>
+	<bean id="requestAsyncProcessService" class="com.p7.framework.async.request.base.impl.ConcurrentRequestAsyncProcessServiceImpl"></bean>
 
 	<bean id="requestProcessorThreadPool"
 		  class="com.p7.framework.async.request.concurrent.thread.RequestProcessorThreadPool"

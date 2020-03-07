@@ -1,8 +1,9 @@
 package com.p7.framework.async.request.concurrent;
 
 import com.p7.framework.async.request.base.RequestAsyncProcessService;
+import com.p7.framework.async.request.base.RequestQueue;
 import com.p7.framework.async.request.common.CommonRequest;
-import com.p7.framework.async.request.concurrent.thread.RequestQueue;
+import com.p7.framework.async.request.concurrent.thread.RequestData;
 import com.p7.framework.async.request.tools.AbstractConcurrentControl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -42,7 +43,7 @@ public class RequestAsyncProcessTest extends AbstractConcurrentControl {
     public void lock() {
         synchronized (this.getClass()) {
             try {
-                RequestQueue requestQueue = RequestQueue.getInstance();
+                RequestQueue<RequestData> requestQueue = RequestQueue.getInstance();
                 int i = requestQueue.queueSize();
                 while (true) {
                     for (int j = 0; j < i; j++) {
