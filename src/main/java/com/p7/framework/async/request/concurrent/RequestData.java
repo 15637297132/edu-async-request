@@ -1,4 +1,4 @@
-package com.p7.framework.async.request.concurrent.thread;
+package com.p7.framework.async.request.concurrent;
 
 import com.p7.framework.async.request.base.Request;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -13,14 +13,14 @@ import java.util.concurrent.ArrayBlockingQueue;
  **/
 public class RequestData {
 
-    private ArrayBlockingQueue<Request<?>> queues;
+    private ArrayBlockingQueue<Request> queues;
     private ThreadPoolTaskExecutor threadPool;
 
-    public ArrayBlockingQueue<Request<?>> getQueues() {
+    public ArrayBlockingQueue<Request> getQueues() {
         return queues;
     }
 
-    public void setQueues(ArrayBlockingQueue<Request<?>> queues) {
+    public void setQueues(ArrayBlockingQueue<Request> queues) {
         this.queues = queues;
     }
 

@@ -1,6 +1,7 @@
-package com.p7.framework.async.request.concurrent.thread;
+package com.p7.framework.async.request.base.thread;
 
 import com.p7.framework.async.request.base.Request;
+import com.p7.framework.async.request.concurrent.RequestData;
 import com.p7.framework.async.request.tools.CheckParams;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,9 +18,9 @@ import com.p7.framework.async.request.base.RequestQueue;
  * @ClassName: RequestProcessorThreadPool
  * @date 2018年11月8日 下午6:38:59
  */
-public class RequestProcessorThreadPool {
+public class ConcurrentRequestProcessorThreadPool {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(RequestProcessorThreadPool.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ConcurrentRequestProcessorThreadPool.class);
 
 
     /**
@@ -57,7 +58,7 @@ public class RequestProcessorThreadPool {
         CheckParams.checkParams(queueNum, perQueueSize);
         RequestQueue requestQueue = RequestQueue.getInstance();
         for (int i = 0; i < queueNum; i++) {
-            ArrayBlockingQueue<Request<?>> queue = new ArrayBlockingQueue<Request<?>>(perQueueSize);
+            ArrayBlockingQueue<Request> queue = new ArrayBlockingQueue<Request>(perQueueSize);
             ThreadPoolTaskExecutor threadPool = threadPoolTaskExecutor(i);
             RequestData requestData = new RequestData();
             requestData.setQueues(queue);

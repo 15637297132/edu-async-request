@@ -10,7 +10,7 @@
 	<bean id="requestAsyncProcessService" class="com.p7.framework.async.request.base.impl.ConcurrentRequestAsyncProcessServiceImpl"></bean>
 
 	<bean id="requestProcessorThreadPool"
-		  class="com.p7.framework.async.request.concurrent.thread.RequestProcessorThreadPool"
+		  class="com.p7.framework.async.request.base.thread.ConcurrentRequestProcessorThreadPool"
 		  init-method="init" scope="singleton"  lazy-init="false">
 		<!-- 数据队列数量 -->
 		<property name="queueNum" value="8" />

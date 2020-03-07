@@ -3,11 +3,13 @@ package com.p7.framework.async.request.base.impl;
 import com.p7.framework.async.request.base.Request;
 import com.p7.framework.async.request.base.RequestAsyncProcessService;
 import com.p7.framework.async.request.base.RequestQueue;
-import com.p7.framework.async.request.concurrent.thread.RequestData;
-import com.p7.framework.async.request.concurrent.thread.RequestProcessorConcurrentTask;
+import com.p7.framework.async.request.concurrent.RequestData;
+import com.p7.framework.async.request.base.processor.ConcurrentRequestProcessor;
 import com.p7.framework.async.request.tools.RouteUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.concurrent.ArrayBlockingQueue;
 
 /**
  * 请求异步处理
@@ -26,7 +28,8 @@ public class ConcurrentRequestAsyncProcessServiceImpl extends RequestAsyncProces
         try {
             RequestData queue = doRoutingQueue(request.getRouteId());
             queue.getQueues().put(request);
-            queue.getThreadPool().submit(new RequestProcessorConcurrentTask(queue.getQueues()));
+            ArrayBlockingQueue<Request> queues = queue.getQueues();
+            queue.getThreadPool().submit(new ConcurrentRequestProcessor(queues));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

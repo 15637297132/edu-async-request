@@ -1,7 +1,7 @@
 package com.p7.framework.async.request.base.thread;
 
 import com.p7.framework.async.request.base.RequestQueue;
-import com.p7.framework.async.request.base.processor.DistinctRequestProcessorThread;
+import com.p7.framework.async.request.base.processor.DistinctRequestProcessor;
 import com.p7.framework.async.request.tools.CheckParams;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +14,7 @@ import java.util.concurrent.ArrayBlockingQueue;
  * 请求处理线程池
  *
  * @author yz
- * @ClassName: RequestProcessorThreadPool
+ * @ClassName: DistinctRequestProcessorThreadPool
  * @date 2018年11月8日 下午6:38:59
  */
 public class DistinctRequestProcessorThreadPool {
@@ -42,7 +42,7 @@ public class DistinctRequestProcessorThreadPool {
         for (int i = 0; i < queueNum; i++) {
             ArrayBlockingQueue<String> queue = new ArrayBlockingQueue(perQueueSize);
             requestQueue.addQueue(queue);
-            threadPool.submit(new DistinctRequestProcessorThread(queue));
+            threadPool.submit(new DistinctRequestProcessor(queue));
         }
         LOGGER.info("内存队列初始化完成...");
     }

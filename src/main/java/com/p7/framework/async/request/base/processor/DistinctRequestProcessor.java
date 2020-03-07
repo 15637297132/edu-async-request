@@ -1,5 +1,6 @@
 package com.p7.framework.async.request.base.processor;
 
+import com.p7.framework.async.request.base.BaseRequestProcessor;
 import com.p7.framework.async.request.distinct.DistinctRequest;
 import com.p7.framework.async.request.distinct.cache.DistinctCache;
 import org.slf4j.Logger;
@@ -9,17 +10,17 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 /** 
  * 处理请求线程
- * @ClassName: DistinctRequestProcessorThread
+ * @ClassName: DistinctRequestProcessor
  * @author yz
  * @date 2018年11月8日 下午6:38:47 
  */
-public class DistinctRequestProcessorThread implements Runnable {
+public class DistinctRequestProcessor implements BaseRequestProcessor {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(DistinctRequestProcessorThread.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(DistinctRequestProcessor.class);
 
 	private ArrayBlockingQueue<String> queue = null;
 
-	public DistinctRequestProcessorThread(ArrayBlockingQueue<String> queue) {
+	public DistinctRequestProcessor(ArrayBlockingQueue<String> queue) {
 		this.queue = queue;
 	}
 
@@ -39,7 +40,7 @@ public class DistinctRequestProcessorThread implements Runnable {
 					LOGGER.info("key:{} 请求已处理或请求已失效...", key);
 				}
 			} catch (Exception e) {
-				LOGGER.error("DistinctRequestProcessorThread：{}", e.toString());
+				LOGGER.error("DistinctRequestProcessor：{}", e.toString());
 			}
 		}
 	}

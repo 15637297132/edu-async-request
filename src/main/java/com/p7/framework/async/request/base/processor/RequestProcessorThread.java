@@ -1,5 +1,6 @@
 package com.p7.framework.async.request.base.processor;
 
+import com.p7.framework.async.request.base.BaseRequestProcessor;
 import com.p7.framework.async.request.base.Request;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,11 +9,11 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 /** 
  * 处理请求线程
- * @ClassName: DistinctRequestProcessorThread
+ * @ClassName: RequestProcessorThread
  * @author yz
  * @date 2018年11月8日 下午6:38:47 
  */
-public class RequestProcessorThread implements Runnable {
+public class RequestProcessorThread implements BaseRequestProcessor {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(RequestProcessorThread.class);
 
@@ -31,7 +32,7 @@ public class RequestProcessorThread implements Runnable {
 				LOGGER.info("处理请求：{}", request.getRouteId());
 				request.process();
 			} catch (Exception e) {
-				LOGGER.error("DistinctRequestProcessorThread：{}", e.toString());
+				LOGGER.error("DistinctRequestProcessor：{}", e.toString());
 			}
 		}
 	}

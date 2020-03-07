@@ -13,7 +13,7 @@ import com.p7.framework.async.request.distinct.DistinctRequest;
 
 /**
  * 请求异步处理，使用本地缓存去重
- * @ClassName: RequestAsyncProcessServiceImpl
+ * @ClassName: DistinctRequestAsyncProcessServiceImpl
  * @author yz
  * @date 2018年11月9日 下午3:12:52
  */
