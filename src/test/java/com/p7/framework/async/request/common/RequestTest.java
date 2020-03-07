@@ -21,7 +21,7 @@ import com.p7.framework.async.request.tools.AbstractConcurrentControl;
  * @date 2018-12-24 10:01
  **/
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring/spring-async-request-base.xml" })
+@ContextConfiguration(locations = {"classpath:spring/spring-async-request-common.xml"})
 public class RequestTest extends AbstractConcurrentControl {
 
 	@Resource

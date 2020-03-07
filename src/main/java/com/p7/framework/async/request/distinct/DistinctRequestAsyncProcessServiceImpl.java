@@ -1,4 +1,4 @@
-package com.p7.framework.async.request.base.impl;
+package com.p7.framework.async.request.distinct;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
@@ -8,8 +8,6 @@ import com.p7.framework.async.request.distinct.cache.DistinctCache;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-
-import com.p7.framework.async.request.distinct.DistinctRequest;
 
 /**
  * 请求异步处理，使用本地缓存去重

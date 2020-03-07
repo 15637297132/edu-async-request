@@ -1,7 +1,6 @@
-package com.p7.framework.async.request.base.thread;
+package com.p7.framework.async.request.concurrent;
 
 import com.p7.framework.async.request.base.Request;
-import com.p7.framework.async.request.concurrent.RequestData;
 import com.p7.framework.async.request.tools.CheckParams;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,13 +1,12 @@
-package com.p7.framework.async.request.base.impl;
+package com.p7.framework.async.request.concurrent;
 
 import com.p7.framework.async.request.base.Request;
 import com.p7.framework.async.request.base.RequestAsyncProcessService;
 import com.p7.framework.async.request.base.RequestQueue;
-import com.p7.framework.async.request.concurrent.RequestData;
-import com.p7.framework.async.request.base.processor.ConcurrentRequestProcessor;
 import com.p7.framework.async.request.tools.RouteUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
@@ -18,6 +17,7 @@ import java.util.concurrent.ArrayBlockingQueue;
  * @ClassName: ConcurrentRequestAsyncProcessServiceImpl
  * @date 2018年11月9日 下午3:12:52
  */
+@Service("concurrentRequestAsyncProcessService")
 public class ConcurrentRequestAsyncProcessServiceImpl extends RequestAsyncProcessService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ConcurrentRequestAsyncProcessServiceImpl.class);

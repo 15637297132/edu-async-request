@@ -5,12 +5,10 @@
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd ">
 
 	<context:annotation-config/>
-	<context:component-scan base-package="com.p7.framework.async.request.concurrent.service"/>
+	<context:component-scan base-package="com.p7.framework.async.request.concurrent"/>
 
-	<bean id="requestAsyncProcessService" class="com.p7.framework.async.request.base.impl.ConcurrentRequestAsyncProcessServiceImpl"></bean>
-
-	<bean id="requestProcessorThreadPool"
-		  class="com.p7.framework.async.request.base.thread.ConcurrentRequestProcessorThreadPool"
+	<bean id="concurrentRequestProcessorThreadPool"
+		  class="com.p7.framework.async.request.concurrent.ConcurrentRequestProcessorThreadPool"
 		  init-method="init" scope="singleton"  lazy-init="false">
 		<!-- 数据队列数量 -->
 		<property name="queueNum" value="8" />

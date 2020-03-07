@@ -1,4 +1,4 @@
-package com.p7.framework.async.request.base.processor;
+package com.p7.framework.async.request.common;
 
 import com.p7.framework.async.request.base.BaseRequestProcessor;
 import com.p7.framework.async.request.base.Request;
@@ -9,17 +9,17 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 /** 
  * 处理请求线程
- * @ClassName: RequestProcessorThread
+ * @ClassName: RequestProcessor
  * @author yz
  * @date 2018年11月8日 下午6:38:47 
  */
-public class RequestProcessorThread implements BaseRequestProcessor {
+public class RequestProcessor implements BaseRequestProcessor {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(RequestProcessorThread.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(RequestProcessor.class);
 
 	private ArrayBlockingQueue<Request> queue = null;
 
-	public RequestProcessorThread(ArrayBlockingQueue<Request> queue) {
+	public RequestProcessor(ArrayBlockingQueue<Request> queue) {
 		this.queue = queue;
 	}
 

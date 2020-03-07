@@ -1,4 +1,4 @@
-package com.p7.framework.async.request.base.impl;
+package com.p7.framework.async.request.common;
 
 import com.p7.framework.async.request.base.Request;
 import com.p7.framework.async.request.base.RequestAsyncProcessService;
