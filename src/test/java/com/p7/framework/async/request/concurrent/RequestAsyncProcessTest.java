@@ -21,7 +21,7 @@ public class RequestAsyncProcessTest extends AbstractConcurrentControl {
         super(30);
     }
 
-    @Resource
+    @Resource(name = "concurrentRequestAsyncProcessService")
     private RequestAsyncProcessService requestAsyncProcessService;
     private MyService myService = new MyService();
 

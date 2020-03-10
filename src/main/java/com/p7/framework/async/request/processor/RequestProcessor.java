@@ -1,4 +1,4 @@
-package com.p7.framework.async.request.common;
+package com.p7.framework.async.request.processor;
 
 import com.p7.framework.async.request.base.BaseRequestProcessor;
 import com.p7.framework.async.request.base.Request;

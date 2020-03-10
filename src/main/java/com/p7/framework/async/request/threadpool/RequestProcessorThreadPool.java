@@ -1,6 +1,7 @@
-package com.p7.framework.async.request.distinct;
+package com.p7.framework.async.request.threadpool;
 
 import com.p7.framework.async.request.base.RequestQueue;
+import com.p7.framework.async.request.processor.RequestProcessor;
 import com.p7.framework.async.request.tools.CheckParams;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,12 +14,12 @@ import java.util.concurrent.ArrayBlockingQueue;
  * 请求处理线程池
  *
  * @author yz
- * @ClassName: DistinctRequestProcessorThreadPool
+ * @ClassName: RequestProcessorThreadPool
  * @date 2018年11月8日 下午6:38:59
  */
-public class DistinctRequestProcessorThreadPool {
+public class RequestProcessorThreadPool {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(DistinctRequestProcessorThreadPool.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RequestProcessorThreadPool.class);
 
     /**
      * 线程池
@@ -39,9 +40,9 @@ public class DistinctRequestProcessorThreadPool {
         CheckParams.checkParams(threadPool, queueNum, perQueueSize);
         RequestQueue requestQueue = RequestQueue.getInstance();
         for (int i = 0; i < queueNum; i++) {
-            ArrayBlockingQueue<String> queue = new ArrayBlockingQueue(perQueueSize);
+            ArrayBlockingQueue queue = new ArrayBlockingQueue(perQueueSize);
             requestQueue.addQueue(queue);
-            threadPool.submit(new DistinctRequestProcessor(queue));
+            threadPool.submit(new RequestProcessor(queue));
         }
         LOGGER.info("内存队列初始化完成...");
     }

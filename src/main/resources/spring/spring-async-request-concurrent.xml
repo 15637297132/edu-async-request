@@ -8,7 +8,7 @@
 	<context:component-scan base-package="com.p7.framework.async.request.concurrent"/>
 
 	<bean id="concurrentRequestProcessorThreadPool"
-		  class="com.p7.framework.async.request.concurrent.ConcurrentRequestProcessorThreadPool"
+		  class="com.p7.framework.async.request.threadpool.ConcurrentRequestProcessorThreadPool"
 		  init-method="init" scope="singleton"  lazy-init="false">
 		<!-- 数据队列数量 -->
 		<property name="queueNum" value="8" />

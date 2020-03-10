@@ -1,6 +1,7 @@
-package com.p7.framework.async.request.distinct;
+package com.p7.framework.async.request.processor;
 
 import com.p7.framework.async.request.base.BaseRequestProcessor;
+import com.p7.framework.async.request.distinct.DistinctRequest;
 import com.p7.framework.async.request.distinct.cache.DistinctCache;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

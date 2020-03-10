@@ -3,6 +3,7 @@ package com.p7.framework.async.request.concurrent;
 import com.p7.framework.async.request.base.Request;
 import com.p7.framework.async.request.base.RequestAsyncProcessService;
 import com.p7.framework.async.request.base.RequestQueue;
+import com.p7.framework.async.request.processor.ConcurrentRequestProcessor;
 import com.p7.framework.async.request.tools.RouteUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -12,7 +12,7 @@
 	<import resource="classpath:spring/spring-async-thread-pool.xml" />
 
 	<bean id="commonRequestProcessorThreadPool"
-		class="com.p7.framework.async.request.common.RequestProcessorThreadPool"
+		class="com.p7.framework.async.request.threadpool.RequestProcessorThreadPool"
 		init-method="init" scope="singleton" lazy-init="false">
 		<property name="threadPool" ref="asyncRequestExecutor" />
 		<!-- 与线程池的核心线程数量相同 -->

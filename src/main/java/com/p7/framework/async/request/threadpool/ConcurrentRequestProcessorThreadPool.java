@@ -1,6 +1,7 @@
-package com.p7.framework.async.request.concurrent;
+package com.p7.framework.async.request.threadpool;
 
 import com.p7.framework.async.request.base.Request;
+import com.p7.framework.async.request.concurrent.RequestData;
 import com.p7.framework.async.request.tools.CheckParams;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +15,7 @@ import com.p7.framework.async.request.base.RequestQueue;
  * 请求处理线程池
  *
  * @author yz
- * @ClassName: RequestProcessorThreadPool
+ * @ClassName: ConcurrentRequestProcessorThreadPool
  * @date 2018年11月8日 下午6:38:59
  */
 public class ConcurrentRequestProcessorThreadPool {
