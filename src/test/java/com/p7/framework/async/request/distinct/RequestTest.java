@@ -53,11 +53,4 @@ public class RequestTest extends AbstractConcurrentControl {
 		return (T) data;
 	}
 
-	@Override
-	public void lock() {
-		try {
-			TimeUnit.SECONDS.sleep(20);
-		} catch (Exception e) {
-		}
-	}
 }
